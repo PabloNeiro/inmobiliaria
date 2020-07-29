@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Container, Row, Col } from "reactstrap";
+import InmueblesGrid from "./components/inmueblesGrid.js";
+import Filters from "./components/filters";
+import FilterContext from "./contex/FilterContext";
 
 function App() {
+  const [stock, setStock] = useState({
+    rooms: "",
+    baths: "",
+    park: "",
+    houses: "",
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FilterContext.Provider
+      value={{
+        stock: stock,
+        setStock: setStock,
+      }}
+    >
+      <Filters />
+      <InmueblesGrid />
+    </FilterContext.Provider>
   );
 }
 

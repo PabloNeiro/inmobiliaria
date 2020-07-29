@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.home {
+  border: 3px solid rgb(118, 175, 221);
+  margin-top: 40px;
+  /* background-color: blue; */
+}
+
+.description {
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  background-color: rgb(235, 239, 243);
+}
